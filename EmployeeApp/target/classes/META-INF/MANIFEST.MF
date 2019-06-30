@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: EmployeeApp
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Ravikanth
+Implementation-Vendor-Id: com.javaworks
+Build-Jdk: 1.8.0_212
+Implementation-URL: https://projects.spring.io/spring-boot/EmployeeApp
+ /
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+

@@ -36,7 +36,7 @@ public class Employee {
 	private Integer comm;
 	
 	@Column(name = "DEPTNO")
-	private Integer deptNo;
+	private Integer deptno;
 
 	public Integer getEmpno() {
 		return empno;
@@ -94,12 +94,12 @@ public class Employee {
 		this.comm = comm;
 	}
 
-	public Integer getDeptNo() {
-		return deptNo;
+	public Integer getDeptno() {
+		return deptno;
 	}
 
-	public void setDeptNo(Integer deptNo) {
-		this.deptNo = deptNo;
+	public void setDeptno(Integer deptno) {
+		this.deptno = deptno;
 	}
 
 }

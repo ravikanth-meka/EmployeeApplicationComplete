@@ -2,15 +2,21 @@ package com.javaworks.controllers;
 
 import java.util.List;
 
+import org.apache.http.HttpStatus;
+import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javaworks.entities.Employee;
 import com.javaworks.exception.ResourceNotFoundException;
+import com.javaworks.exception.ResponseStatusException;
 import com.javaworks.repo.EmployeeRepository;
 
 @CrossOrigin(maxAge = 3600)
@@ -36,6 +42,19 @@ public class EmployeeController {
 		}
 		return emp;
 		
+	}
+	
+	@PostMapping
+	public Employee addNewCustomer(@RequestBody Employee newEmployee) {
+		try {
+			employeeRepository.save(newEmployee);
+		} catch (DataIntegrityViolationException | ConstraintViolationException e) {
+			throw new ResponseStatusException("Employee already exist", e);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new ResponseStatusException("Employee already exist", e);
+		}
+		return newEmployee;
 	}
 	
 	
