@@ -1,0 +1,71 @@
+<form #employeeForm="ngForm" (ngSubmit)="saveEmploye(employee)">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        Add New Employee
+      </h3>
+    </div>
+    <div class="panel-body">
+      <div class="form-group"  [class.has-error]="ename.invalid && ename.touched" [class.has-success]="ename.valid" >
+        <label for="ename" class="control-label">Full Name</label>
+        <input required id="ename" name="ename" [(ngModel)]="employee.ename" type="text" class="form-control" #ename="ngModel">
+        <span class="help-block" *ngIf="ename.invalid && ename.touched">
+          Employee name is required
+        </span>
+      </div>
+      
+
+      <!-- empno: number;
+      ename: string;
+      job: string;
+      mgr: number;
+      hiredate: Date;
+      sal: number;
+      comm: number;
+      deptno: number; -->
+
+      <div class="form-group">
+        <label for="empno">Employee number</label>
+        <input id="empno" name="empno" [(ngModel)]="employee.empno" type="text" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="comm">comm</label>
+        <input id="comm" name="comm" [(ngModel)]="employee.comm" type="text" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="job">Job</label>
+        <input id="job" name="job" [(ngModel)]="employee.job" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="manager">Manager</label>
+        <input id="manager" name="manager" [(ngModel)]="employee.mgr" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="hiredate">Hire Date</label>
+        <input id="hiredate" name="hiredate" [(ngModel)]="employee.hiredate" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="salary">Salary</label>
+        <input id="salary" name="salary" [(ngModel)]="employee.sal" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="dept">Department</label>
+        <input id="dept" name="dept" [(ngModel)]="employee.deptno" type="text" class="form-control">
+      </div>
+     
+
+    
+     
+    <div class="panel-footer">
+      <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid">Save</button>
+    </div>
+  </div>
+  </div>
+
+</form>
+Angular generated form model: {{employeeForm.value | json}}
+
+<br/><br/>
+Our employee model: {{employee | json}}

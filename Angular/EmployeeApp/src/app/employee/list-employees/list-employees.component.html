@@ -1,0 +1,81 @@
+<span class="help-block" *ngIf="error">
+{{error}}
+</span>
+<div class="panel panel-primary" *ngFor="let employee of employees">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        {{employee.ename}}
+      </h3>
+    </div>
+      <div class="panel-body">
+        <div class="col-xs-10">
+          <div class="row vertical-align">
+            <div class="col-xs-4">
+            <!--  <img class="imageClass" [src]="employee.photoPath" />-->
+            </div>
+  
+            <div class="col-xs-8">
+              <div class="row">
+                <div class="col-xs-6">
+                  Employee Number
+                </div>
+                <div class="col-xs-6">
+                  : {{employee.empno}}
+                </div>
+              </div>
+  
+  
+              <div class="row">
+                <div class="col-xs-6">
+                 Job
+                </div>
+                <div class="col-xs-6">
+                  : {{employee.job}}
+                </div>
+              </div>
+  
+              <div class="row">
+                <div class="col-xs-6">
+                  Manager
+                </div>
+                <div class="col-xs-6">
+                  : {{employee.mgr}}
+                </div>
+              </div>
+  
+              <div class="row">
+                <div class="col-xs-6">
+                  Hire Date
+                </div>
+                <div class="col-xs-6">
+                  : {{employee.hiredate | date}}
+                </div>
+              </div>
+  
+              <div class="row">
+                <div class="col-xs-6">
+                  Salary
+                </div>
+                <div class="col-xs-6">
+                  : {{employee.sal}}
+                </div>
+              </div>
+  
+              <div class="row">
+                <div class="col-xs-6">
+                  Department
+                </div>
+                <div class="col-xs-6">
+                  : {{employee.deptno}}
+                </div>
+              </div>
+  
+              
+  
+  
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  </div>

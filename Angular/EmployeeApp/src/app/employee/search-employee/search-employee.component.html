@@ -1,0 +1,108 @@
+<form #searchEmployeeForm="ngForm" (ngSubmit)="searchEmployee(empno)">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        Add New Employee
+      </h3>
+    </div>
+    <div class="panel-body">
+      <div class="form-group">
+        <label for="empno">Employee number</label>
+        <input id="empno" name="empno" [(ngModel)]="empno" type="text" class="form-control">
+      </div>
+    </div>
+    <div class="panel-footer">
+      <button type="submit" class="btn btn-primary" [disabled]="searchEmployeeForm.invalid">Search</button>
+    </div>
+  </div>
+
+
+
+  
+</form>
+
+
+<div class="panel panel-primary" *ngIf="searchedEmployee">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      {{searchedEmployee.ename}}
+    </h3>
+  </div>
+    <div class="panel-body">
+      <div class="col-xs-10">
+        <div class="row vertical-align">
+          <div class="col-xs-4">
+          <!--  <img class="imageClass" [src]="employee.photoPath" />-->
+          </div>
+
+          <div class="col-xs-8">
+            <div class="row">
+              <div class="col-xs-6">
+                Employee Number
+              </div>
+              <div class="col-xs-6">
+                : {{searchedEmployee.empno}}
+              </div>
+            </div>
+
+
+            <div class="row">
+              <div class="col-xs-6">
+               Job
+              </div>
+              <div class="col-xs-6">
+                : {{searchedEmployee.job}}
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6">
+                Manager
+              </div>
+              <div class="col-xs-6">
+                : {{searchedEmployee.mgr}}
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6">
+                Hire Date
+              </div>
+              <div class="col-xs-6">
+                : {{searchedEmployee.hiredate | date}}
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6">
+                Salary
+              </div>
+              <div class="col-xs-6">
+                : {{searchedEmployee.sal}}
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6">
+                Department
+              </div>
+              <div class="col-xs-6">
+                : {{searchedEmployee.deptno}}
+              </div>
+            </div>
+
+            
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+    <div class="panel panel-primary" *ngIf="dispError !='none'">
+        <h3 >
+          {{dispError}}
+        </h3>
+      </div>
+
