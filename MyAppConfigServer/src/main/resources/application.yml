@@ -25,6 +25,8 @@ spring:
           enabled: true
         git:
           uri: https://github.com/ravikanth-meka/EmployeeApplicationConfig
+          search-paths:
+          - '*service' 
          
         #native:
         #  search-locations: F:/MyJavaProjects/SpringTestWS/configs

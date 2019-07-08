@@ -2,9 +2,9 @@ package com.javaworks.controllers;
 
 import java.util.List;
 
-import org.apache.http.HttpStatus;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +27,10 @@ public class EmployeeController {
 	@Autowired
 	EmployeeRepository employeeRepository;
 	
+	@Value("${emp.head}")
+	public String emphead;
+	
+	
 	@GetMapping
 	public Employee getEmployeeDetails(@RequestParam(value = "empno") int empno) {
 
@@ -38,7 +42,7 @@ public class EmployeeController {
 			// We can create an instance of it providing an HttpStatus and optionally a
 			// reason and a cause:
 			//throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Department Not Found");
-			throw new ResourceNotFoundException("Employee Not Found");
+			throw new ResourceNotFoundException(emphead + " ---- Employee Not Found");
 		}
 		return emp;
 		
@@ -52,7 +56,7 @@ public class EmployeeController {
 			throw new ResponseStatusException("Employee already exist", e);
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new ResponseStatusException("Employee already exist", e);
+			throw new ResponseStatusException(emphead + " ---- Employee already exist", e);
 		}
 		return newEmployee;
 	}
