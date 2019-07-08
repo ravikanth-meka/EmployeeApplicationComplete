@@ -15,7 +15,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import oracle.jdbc.pool.OracleDataSource;
 
 @Configuration
-@ConfigurationProperties(prefix = "spring.test")
+@ConfigurationProperties(prefix = "spring.db")
 @EnableJpaRepositories(basePackages="com.javaworks.repo", entityManagerFactoryRef="scottEntityManagerFactory") //, transactionManagerRef="courseTransactionManager")
 public class ScottConfig {
 

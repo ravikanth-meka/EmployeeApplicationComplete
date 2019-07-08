@@ -1,0 +1,33 @@
+eureka:
+  client:
+    eureka-server-port: 8761
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: ''
+        include: 'health,info '
+  security:
+    enabled: false
+    
+server:
+  port: 8888
+  
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      discovery:
+        enabled: false
+      server:
+        encrypt:
+          enabled: true
+        git:
+          uri: https://github.com/ravikanth-meka/EmployeeApplicationConfig
+         
+        #native:
+        #  search-locations: F:/MyJavaProjects/SpringTestWS/configs
+          
+  #profiles:
+  #  include: native,default
