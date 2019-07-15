@@ -1,0 +1,24 @@
+server:
+  port: 9001
+  
+spring:
+  application:
+     name: authorization-server  
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle10gDialect
+        show_sql: true
+        generate_statistics: true 
+  datasource: 
+    driverClassName: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@localhost:1521:orcl
+    username: auth_admin
+    password: auth
+    tomcat:
+      test-while-idle: true
+      validation-query: SELECT 1
+    initialization-mode: never
+    platform: oracle
+
+check-user-scopes: true      
